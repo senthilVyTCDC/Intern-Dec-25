@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Login</title>
+    <link rel="stylesheet" href="student_login.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="login-card">
+        <div class="icon">🎓</div>
+        <h1>Student Login</h1>
+
+        <!-- JavaScript login -->
+        <form onsubmit="return studentLogin()">
+
+            <div class="field">
+                <label>Student Name</label>
+                <input type="text" id="studentName" required>
+            </div>
+
+            <div class="field">
+                <label>Library ID</label>
+                <input type="text" id="libraryId" required>
+            </div>
+
+            <div class="field">
+                <label>Password</label>
+                <input type="password" id="password" required>
+            </div>
+
+            <div class="field">
+                <label>Course</label>
+                <input type="text" id="course">
+            </div>
+
+            <div class="field">
+                <label>Year</label>
+                <input type="text" id="year">
+            </div>
+
+            <div class="field">
+                <label>Email ID</label>
+                <input type="email" id="email">
+            </div>
+
+            <input type="submit" value="Login" class="btn login-btn">
+        </form>
+
+        <form action="index.html">
+            <input type="submit" value="Home Page" class="btn home-btn">
+        </form>
+
+    </div>
+
+</div>
+
+<!-- JavaScript -->
+<script>
+function studentLogin() {
+    var libraryId = document.getElementById("libraryId").value;
+    var password = document.getElementById("password").value;
+
+    // Demo student credentials
+    var studentId = "STD001";
+    var studentPass = "student123";
+
+    if (libraryId === studentId && password === studentPass) {
+        alert("Student Login Successful!");
+        window.location.href = "student dashboard.html";
+        return false;
+    } else {
+        alert("Invalid Library ID or Password!");
+        return false;
+    }
+}
+</script>
+
+</body>
+</html>

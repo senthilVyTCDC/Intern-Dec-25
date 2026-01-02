@@ -1,0 +1,128 @@
+
+<style>
+     * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: url("https://images.unsplash.com/photo-1524995997946-a1c2e315a42f");
+            background-size: cover;
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+    /* AUTHORS BOX */
+    .box {
+        margin-left: 270px;
+        margin-top: 40px;
+        width: 55%;
+        background: rgba(255,255,255,0.15);
+        backdrop-filter: blur(12px);
+        padding: 35px;
+        border-radius: 20px;
+        color: white;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+
+    .box h2 {
+        font-size: 26px;
+        margin-bottom: 25px;
+        border-bottom: 2px solid rgba(255,255,255,0.3);
+        padding-bottom: 10px;
+    }
+
+    /* AUTHORS LIST */
+    .box ul {
+        list-style: none;
+    }
+
+    .box ul li {
+        background: rgba(0,0,0,0.45);
+        padding: 15px 20px;
+        margin-bottom: 15px;
+        border-radius: 12px;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        transition: 0.3s;
+    }
+
+    .box ul li::before {
+        content: "✍";
+        margin-right: 12px;
+        font-size: 20px;
+    }
+
+    .box ul li:hover {
+        background: rgba(52, 152, 219, 0.7);
+        transform: translateX(8px);
+    }
+    
+    /* DASHBOARD BUTTON */
+    .dashboard-btn {
+        display: inline-block;
+        text-decoration: none;
+        background: #1abc9c;
+        color: white;
+        padding: 12px 28px;
+        border-radius: 25px;
+        font-size: 16px;
+        transition: 0.3s;
+    }
+
+    .dashboard-btn:hover {
+        background: #16a085;
+        transform: scale(1.05);
+    }
+</style>
+
+    <div class="box">
+    <h2>Authors List</h2>
+
+    <ul id="authorList">
+        <li onclick="showAuthorBooks('gosling')">James Gosling</li>
+        <li onclick="showAuthorBooks('ritchie')">Dennis Ritchie</li>
+        <li onclick="showAuthorBooks('tanenbaum')">Andrew Tanenbaum</li>
+    </ul>
+
+    <h2 style="margin-top:30px;">Books by Author</h2>
+    <ul id="authorBooks">
+        <li>Select an author to view books</li>
+    </ul>
+
+    
+    <a href="admin dashboard.html" class="dashboard-btn">⬅ Back to Dashboard</a>
+</div>
+
+<script>
+    const authorBooks = {
+        gosling: [
+            "The Java Programming Language",
+            "Java Language Specification",
+            "Effective Java (Contributor)"
+        ],
+        ritchie: [
+            "The C Programming Language",
+            "Unix Programmer's Manual"
+        ],
+        tanenbaum: [
+            "Modern Operating Systems",
+            "Computer Networks",
+            "Distributed Systems"
+        ]
+    };
+
+    function showAuthorBooks(author) {
+        const list = document.getElementById("authorBooks");
+        list.innerHTML = "";
+
+        authorBooks[author].forEach(book => {
+            const li = document.createElement("li");
+            li.textContent = book;
+            list.appendChild(li);
+        });
+    }
+</script>
+

@@ -1,0 +1,121 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: url("https://images.unsplash.com/photo-1512820790803-83ca734da794");
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+/* HEADER */
+.header {
+    height: 70px;
+    background: rgba(0,0,0,0.75);
+    color: white;
+    display: grid;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+}
+
+.logo span {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.logout {
+    text-decoration: none;
+    color: white;
+    background: #e67e22;
+    padding: 8px 18px;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.logout:hover {
+    background: #d35400;
+}
+
+/* SIDEBAR */
+.menu {
+    width: 230px;
+    position: fixed;
+    top: 70px;
+    bottom: 0;
+    background: rgba(0,0,0,0.85);
+    padding-top: 20px;
+}
+
+.menu a {
+    display: block;
+    color: white;
+    padding: 15px 25px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    background: #3498db;
+    padding-left: 35px;
+}
+
+/* CONTENT */
+.content {
+    margin-left: 230px;
+    padding: 30px;
+}
+
+.title {
+    color: white;
+    font-size: 26px;
+    margin-bottom: 30px;
+}
+
+/* CARDS */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 25px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    transition: 0.4s;
+}
+
+.card img {
+    width: 60px;
+    margin-bottom: 10px;
+}
+
+.card h3 {
+    font-size: 30px;
+    margin: 10px 0;
+}
+
+.card p {
+    font-size: 16px;
+}
+
+/* HOVER EFFECTS */
+.card:hover {
+    transform: translateY(-10px) scale(1.05);
+}
+
+.available:hover { background: rgba(46, 204, 113, 0.6); }
+.issued:hover { background: rgba(52, 152, 219, 0.6); }
+.returned:hover { background: rgba(155, 89, 182, 0.6); }
+.pending:hover { background: rgba(231, 76, 60, 0.6); }

@@ -1,0 +1,152 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Issued Books</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: url("https://images.unsplash.com/photo-1512820790803-83ca734da794");
+            background-size: cover;
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+
+        /* HEADER */
+        .header {
+            height: 70px;
+            background: rgba(0,0,0,0.75);
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            padding-left: 30px;
+        }
+
+        /* SIDEBAR */
+        .menu {
+            width: 220px;
+            position: fixed;
+            top: 70px;
+            bottom: 0;
+            background: rgba(0,0,0,0.85);
+            padding-top: 20px;
+        }
+
+        .menu a {
+            display: block;
+            padding: 15px 25px;
+            text-decoration: none;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .menu a:hover,
+        .menu a.active {
+            background: #3498db;
+            padding-left: 35px;
+        }
+
+        /* CONTENT BOX */
+        .box {
+            margin-left: 250px;
+            margin-top: 40px;
+            width: 60%;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        .box h2 {
+            margin-bottom: 20px;
+            font-size: 26px;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+            padding-bottom: 10px;
+        }
+
+        /* LIST STYLE */
+        ul {
+            list-style: none;
+        }
+
+        ul li {
+            background: rgba(0,0,0,0.4);
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            font-size: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.3s;
+        }
+
+        ul li:hover {
+            background: rgba(52, 152, 219, 0.6);
+            transform: translateX(5px);
+        }
+
+        /* DAYS LEFT TAG */
+        .days {
+            background: #e67e22;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .menu {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+
+            .box {
+                margin-left: 0;
+                width: 90%;
+                margin: 20px auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="header">📘 Library System</div>
+
+<div class="menu">
+    <a href="student dashboard.html">🏠 Dashboard</a>
+    <a href="issued_books.html" class="active">📄 Issued Books</a>
+</div>
+
+<div class="box">
+    <h2>Issued Books</h2>
+    <ul>
+        <li>
+            Computer Networks
+            <span class="days">10 Days Left</span>
+        </li>
+        <li>
+            DBMS
+            <span class="days">5 Days Left</span>
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>

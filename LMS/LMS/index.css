@@ -1,0 +1,145 @@
+/* Body background */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url("https://images.unsplash.com/photo-1524995997946-a1c2e315a42f");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+/* Dark overlay */
+/* Overlay full screen center support (if not already) */
+/* Center everything */
+.overlay {
+    min-height: 100vh;
+    background: rgba(0,0,0,0.45);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Header layout */
+/* Header center */
+/* Header center */
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+    text-align: center;
+}
+
+/* Book icon with 3D effect */
+.book-hover {
+    font-size: 80px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    display: inline-block;
+    transform-style: preserve-3d;
+    transition: 
+        transform 0.7s ease,
+        box-shadow 0.7s ease;
+}
+
+/* Flip + shadow on hover */
+.book-hover:hover {
+    transform: rotateY(180deg) scale(1.05);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Title text */
+.header h1 {
+    color: white;
+    font-size: 36px;
+    margin: 0;
+}
+
+
+
+/* Login box */
+.login-box {
+    background-color: white;
+    width: 350px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.4);
+}
+
+.login-box h2 {
+    color: black;
+    margin-bottom: 30px;
+}
+
+/* Buttons */
+.btn {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* Admin button */
+.admin {
+    background-color: #2c3e50;
+    color: white;
+}
+
+.admin:hover {
+    background-color: #1a252f;
+}
+
+/* User button */
+.user {
+    background-color: #2980b9;
+    color: white;
+}
+
+.user:hover {
+    background-color: #1f6391;
+}
+/* Header alignment */
+.header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Book container */
+.book {
+    width: 50px;
+    height: 60px;
+    position: relative;
+    perspective: 800px;
+    cursor: pointer;
+}
+
+/* Book cover */
+.cover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #2b5cff;
+    transform-origin: left;
+    transition: transform 0.8s ease;
+    border-radius: 4px;
+    z-index: 4;
+}
+
+/* Pages */
+.page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #fdfdfd;
+    transform-origin: left;
+    border-radius: 4px;
+    box-shadow: inset 0 0 2px rgba(0,0,0,0.2);
+}
+
+

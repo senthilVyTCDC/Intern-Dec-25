@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Categories | Admin</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: url("https://images.unsplash.com/photo-1524995997946-a1c2e315a42f");
+            background-size: cover;
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+
+        /* HEADER */
+        .header {
+            height: 70px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            padding-left: 30px;
+        }
+
+        /* SIDEBAR */
+        .menu {
+            width: 240px;
+            position: fixed;
+            top: 70px;
+            bottom: 0;
+            background: rgba(0,0,0,0.9);
+            padding-top: 20px;
+        }
+
+        .menu a {
+            display: block;
+            padding: 15px 25px;
+            text-decoration: none;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .menu a:hover,
+        .menu a.active {
+            background: #1abc9c;
+            padding-left: 35px;
+        }
+
+        /* CONTENT BOX */
+        .box {
+            margin-left: 270px;
+            margin-top: 40px;
+            width: 55%;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(12px);
+            padding: 35px;
+            border-radius: 20px;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        .box h2 {
+            font-size: 26px;
+            margin-bottom: 25px;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+            padding-bottom: 10px;
+        }
+
+        /* CATEGORY LIST */
+        ul {
+            list-style: none;
+        }
+
+        ul li {
+            background: rgba(0,0,0,0.45);
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            transition: 0.3s;
+        }
+
+        ul li::before {
+            content: "📚";
+            margin-right: 12px;
+            font-size: 20px;
+        }
+
+        ul li:hover {
+            background: rgba(26, 188, 156, 0.7);
+            transform: translateX(8px);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .menu {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+
+            .box {
+                margin-left: 0;
+                width: 90%;
+                margin: 20px auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+<div class="header">📘 Library System (Admin)</div>
+
+<div class="menu">
+    <a href="admin dashboard.html">🏠 Dashboard</a>
+    <a href="categories.html" class="active">🏷 Categories</a>
+    <a href="authour.html">✍ Authors</a>
+    <a href="books.html">📚 Books</a>
+    <a href="issue_books.html">📖 Issue Books</a>
+    <a href="students.html">👥 Students</a>
+</div>
+
+<div class="box">
+    <h2>Book Categories</h2>
+
+    <ul id="categoryList">
+        <li onclick="showBooks('programming')">Programming</li>
+        <li onclick="showBooks('networking')">Networking</li>
+        <li onclick="showBooks('database')">Database</li>
+        <li onclick="showBooks('os')">Operating System</li>
+    </ul>
+
+    <h2 style="margin-top:30px;">Books</h2>
+    <ul id="bookList">
+        <li>Select a category to view books</li>
+    </ul>
+</div>
+
+</div>
+ <script>
+    const books = {
+        programming: [
+            "C Programming",
+            "Java Programming",
+            "Python Basics",
+            "Web Development",
+            "Data Structures"
+        ],
+        networking: [
+            "Computer Networks",
+            "CCNA Guide",
+            "Network Security",
+            "Wireless Communication"
+        ],
+        database: [
+            "DBMS Concepts",
+            "SQL Fundamentals",
+            "MySQL Guide",
+            "Oracle Database"
+        ],
+        os: [
+            "Operating System Concepts",
+            "Linux Administration",
+            "Unix Internals",
+            "Windows OS"
+        ]
+    };
+
+    function showBooks(category) {
+        const bookList = document.getElementById("bookList");
+        bookList.innerHTML = "";
+
+        books[category].forEach(book => {
+            const li = document.createElement("li");
+            li.textContent = book;
+            bookList.appendChild(li);
+        });
+    }
+</script>
+
+</body>
+</html>

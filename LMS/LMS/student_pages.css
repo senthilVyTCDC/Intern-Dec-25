@@ -1,0 +1,45 @@
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #f4f6f9;
+}
+
+.header {
+    background: white;
+    padding: 15px;
+}
+
+.menu {
+    background: #eee;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.menu a {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}
+
+.menu a:hover {
+    color: #3498db;
+}
+
+.line {
+    height: 5px;
+    background: #3498db;
+}
+
+.box {
+    background: white;
+    width: 60%;
+    margin: 40px auto;
+    padding: 20px;
+    box-shadow: 0 5px 10px gray;
+    border-radius: 10px;
+}
+
+.box h2 {
+    text-align: center;
+}

@@ -1,0 +1,99 @@
+/* Page background */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #74ebd5, #acb6e5);
+    height: 100vh;
+}
+
+/* Center container */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+/* Card */
+.login-card {
+    background-color: white;
+    width: 420px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    text-align: center;
+}
+
+/* Icon */
+.icon {
+    font-size: 30px;
+}
+
+/* Title */
+.login-card h1 {
+    margin: 15px 0 25px;
+    color: #2c3e50;
+}
+
+/* Fields */
+.field {
+    text-align: left;
+    margin-bottom: 12px;
+}
+
+.field label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.field input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 4px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Buttons */
+.btn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 12px;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Login button */
+.login-btn {
+    background-color: #3498db;
+    color: white;
+}
+
+.login-btn:hover {
+    background-color: #2c80b4;
+}
+
+/* Home button */
+.home-btn {
+    background-color: #16a085;
+    color: white;
+}
+
+.home-btn:hover {
+    background-color: #117a65;
+}
+ * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: url("https://images.unsplash.com/photo-1512820790803-83ca734da794");
+            background-size: cover;
+            background-attachment: fixed;
+            min-height: 100vh;
+        }

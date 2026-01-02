@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="admin_login.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="login-card">
+        <div class="icon">👨‍💼</div>
+        <h1>Admin Login</h1>
+
+        <!-- No action attribute -->
+        <form onsubmit="return adminLogin()">
+
+            <div class="field">
+                <label>Username</label>
+                <input type="text" id="username" required>
+            </div>
+
+            <div class="field">
+                <label>Password</label>
+                <input type="password" id="password" required>
+            </div>
+
+            <div class="field">
+                <label>User ID</label>
+                <input type="text" id="userid">
+            </div>
+
+            <div class="field">
+                <label>Email ID</label>
+                <input type="email" id="email">
+            </div>
+
+            <input type="submit" value="Login" class="btn login-btn">
+
+        </form>
+
+        <form action="index.html">
+            <input type="submit" value="Home Page" class="btn home-btn">
+        </form>
+
+    </div>
+
+</div>
+
+<!-- JavaScript -->
+<script>
+function adminLogin() {
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+   
+    // Admin credentials
+    var adminUser = "admin";
+    var adminPass = "admin123";
+    
+    if (username === adminUser && password === adminPass) {
+        alert("Login Successful!");
+        window.location.href = "admin dashboard.html";
+        return false;
+    } else {
+        alert("Invalid Username or Password!");
+        return false;
+    }
+}
+</script>
+
+</body>
+</html>
