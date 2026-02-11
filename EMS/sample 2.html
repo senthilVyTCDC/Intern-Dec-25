@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Employee Dashboard</title>
+    <meta charset="UTF-8">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-main: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            --card-bg: rgba(255,255,255,0.15);
+            --sidebar-bg: rgba(255,255,255,0.1);
+            --text-color: #ffffff;
+            --accent: #00ffd5;
+        }
+
+        body.light {
+            --bg-main: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            --card-bg: rgba(255,255,255,0.9);
+            --sidebar-bg: rgba(255,255,255,0.85);
+            --text-color: #000000;
+            --accent: #007bff;
+        }
+
+        body.blue {
+            --bg-main: linear-gradient(135deg, #1e3c72, #2a5298);
+            --card-bg: rgba(255,255,255,0.2);
+            --sidebar-bg: rgba(255,255,255,0.15);
+            --text-color: #ffffff;
+            --accent: #4dd0e1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: var(--bg-main);
+            color: var(--text-color);
+            transition: 0.3s;
+        }
+
+        .topbar {
+            background: rgba(0,0,0,0.5);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            backdrop-filter: blur(10px);
+        }
+
+        .main {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 260px;
+            background: var(--sidebar-bg);
+            backdrop-filter: blur(12px);
+            padding-top: 15px;
+        }
+
+        .sidebar a, .theme-box {
+            display: block;
+            padding: 14px 25px;
+            color: var(--text-color);
+            text-decoration: none;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .sidebar a i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+
+        .sidebar a:hover, .theme-box:hover {
+            background: rgba(0,0,0,0.35);
+            border-left: 4px solid var(--accent);
+        }
+
+        .theme-title {
+            padding: 15px 25px;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .content {
+            flex: 1;
+            padding: 30px;
+        }
+
+        .cards, .actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card, .action-card, .table-box {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: 0.3s;
+        }
+
+        .card:hover, .action-card:hover {
+            transform: translateY(-6px);
+        }
+
+        table {
+            width: 100%;
+            margin-top: 10px;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background: rgba(0,0,0,0.4);
+        }
+
+        .approved { color: #00ff9c; }
+        .pending { color: #ffc107; }
+    </style>
+</head>
+
+<body onload="loadTheme()">
+
+<div class="topbar">
+    <div><b><i class="fa-solid fa-building-user"></i> Employee MS</b></div>
+    <div><i class="fa-solid fa-user"></i> Welcome : Employee</div>
+</div>
+
+<div class="main">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+        <a href="dashboard.html"><i class="fa-solid fa-house"></i> Dashboard</a>
+        <a href="profile.html"><i class="fa-solid fa-user"></i> My Profile</a>
+        <a href="apply_leave.html"><i class="fa-solid fa-pen"></i> Apply Leave</a>
+        <a href="leave_status.html"><i class="fa-solid fa-calendar-check"></i> Leave Status</a>
+        <a href="salary.html"><i class="fa-solid fa-wallet"></i> Salary</a>
+        <a href="attendance.html"><i class="fa-solid fa-chart-line"></i> Attendance</a>
+        <a href="change_password.html"><i class="fa-solid fa-lock"></i> Change Password</a>
+
+        <!-- THEME SECTION -->
+        <div class="theme-title">🎨 Theme</div>
+        <div class="theme-box" onclick="setTheme('')">🌙 Dark</div>
+        <div class="theme-box" onclick="setTheme('light')">☀ Light</div>
+        <div class="theme-box" onclick="setTheme('blue')">🌈 Blue</div>
+
+        <a href="logout.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <h2>📊 Employee Dashboard</h2><br>
+
+        <div class="cards">
+            <div class="card">Total Leaves <h1>12</h1></div>
+            <div class="card">Used Leaves <h1>5</h1></div>
+            <div class="card">Remaining <h1>7</h1></div>
+            <div class="card">Pending <h1>1</h1></div>
+        </div>
+
+        <div class="table-box" style="margin-top:25px;">
+            <b>📋 Recent Leave Status</b>
+            <table>
+                <tr>
+                    <th>Type</th><th>From</th><th>To</th><th>Status</th>
+                </tr>
+                <tr>
+                    <td>Casual</td><td>10-01-25</td><td>12-01-25</td>
+                    <td class="approved">Approved</td>
+                </tr>
+                <tr>
+                    <td>Sick</td><td>02-02-25</td><td>03-02-25</td>
+                    <td class="pending">Pending</td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    function setTheme(theme) {
+        document.body.className = theme;
+        localStorage.setItem("theme", theme);
+    }
+
+    function loadTheme() {
+        const theme = localStorage.getItem("theme");
+        if (theme) document.body.className = theme;
+    }
+</script>
+
+</body>
+</html>

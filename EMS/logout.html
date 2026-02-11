@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Logged Out | Employee Management System</title>
+
+<style>
+/* Reset */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', sans-serif;
+}
+
+/* Background */
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    color:#fff;
+}
+
+/* Card */
+.card{
+    background:rgba(255,255,255,0.1);
+    backdrop-filter:blur(12px);
+    border-radius:20px;
+    padding:40px;
+    width:420px;
+    text-align:center;
+    box-shadow:0 25px 50px rgba(0,0,0,0.5);
+}
+
+/* Logo */
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    color:#00eaff;
+    margin-bottom:10px;
+}
+
+/* Image */
+.card img{
+    width:180px;
+    margin:20px 0;
+}
+
+/* Heading */
+.card h2{
+    margin-bottom:10px;
+}
+
+/* Text */
+.card p{
+    opacity:0.85;
+    margin-bottom:25px;
+}
+
+/* Button */
+a{
+    display:inline-block;
+    padding:12px 28px;
+    background:#00ff9c;
+    color:#000;
+    text-decoration:none;
+    border-radius:25px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+a:hover{
+    background:#00eaff;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <!-- Project Logo / Name -->
+    <div class="logo">EMPLOYEE MS</div>
+    <small>Employee Management System</small>
+
+    <!-- Illustration Image -->
+    <!-- You can replace this image later with your own project logo or image -->
+    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Logout Illustration">
+
+    <h2>👋 Logged Out Successfully</h2>
+    <p>Thank you for using the Employee Management System.<br>
+       You have been safely logged out.</p>
+
+    <a href="login.html">🔐 Login Again</a>
+
+</div>
+
+</body>
+</html>

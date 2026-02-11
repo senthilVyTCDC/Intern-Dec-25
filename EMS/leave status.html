@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Leave Status | Employee Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', sans-serif;
+}
+
+/* BODY */
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    color:#fff;
+}
+
+/* TOPBAR (MOBILE) */
+.topbar{
+    display:none;
+    align-items:center;
+    gap:15px;
+    padding:15px;
+    background:rgba(0,0,0,0.75);
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1100;
+}
+
+.menu-btn{
+    font-size:24px;
+    cursor:pointer;
+}
+
+/* LAYOUT */
+.main{
+    display:flex;
+    min-height:100vh;
+}
+
+/* SIDEBAR */
+.sidebar{
+    width:260px;
+    background:rgba(0,0,0,0.7);
+    backdrop-filter:blur(10px);
+    min-height:100vh;
+    padding-top:20px;
+    transition:0.3s;
+    z-index:1000;
+}
+
+.sidebar h2{
+    text-align:center;
+    margin-bottom:25px;
+    color:#00eaff;
+}
+
+.sidebar a{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:15px 20px;
+    color:#fff;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.sidebar a:hover{
+    background:#00eaff;
+    color:#000;
+    border-radius:8px;
+    margin:0 10px;
+}
+
+/* CLOSE BUTTON (MOBILE) */
+.close-btn{
+    display:none;
+    text-align:right;
+    padding:10px 20px;
+    font-size:22px;
+    cursor:pointer;
+}
+
+/* CONTENT */
+.content{
+    flex:1;
+    padding:40px;
+}
+
+/* CARD */
+.card{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(12px);
+    border-radius:16px;
+    padding:30px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.4);
+}
+
+.card h2{
+    margin-bottom:20px;
+    color:#00eaff;
+}
+
+/* TABLE */
+.table-wrap{
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:15px;
+    min-width:500px;
+}
+
+th{
+    background:rgba(0,0,0,0.6);
+    padding:14px;
+    text-transform:uppercase;
+    font-size:14px;
+}
+
+td{
+    padding:14px;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+tr:hover{
+    background:rgba(255,255,255,0.05);
+}
+
+/* STATUS BADGES */
+.status{
+    padding:6px 14px;
+    border-radius:20px;
+    font-weight:600;
+    display:inline-block;
+}
+
+.approved{ background:#00ff9c; color:#000; }
+.pending{ background:#ffc107; color:#000; }
+.rejected{ background:#ff4d4d; color:#fff; }
+
+/* RESPONSIVE */
+@media(max-width:900px){
+
+    .topbar{
+        display:flex;
+    }
+
+    .main{
+        flex-direction:column;
+    }
+
+    .sidebar{
+        position:fixed;
+        top:0;
+        left:-100%;
+        height:100%;
+    }
+
+    .sidebar.show{
+        left:0;
+    }
+
+    .close-btn{
+        display:block;
+    }
+
+    .content{
+        padding:20px;
+        margin-top:60px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+TOPBAR
+<div class="topbar">
+    <span class="menu-btn" onclick="toggleMenu()">☰</span>
+    <b>Leave Status</b>
+</div>
+
+<div class="main">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar" id="sidebar">
+        <div class="close-btn" onclick="toggleMenu()">✖</div>
+        <h2>EMPLOYEE</h2>
+        <a href="Employee dashboard.html">🏠 Dashboard</a>
+        <a href="leave status.html">📅 Leave Status</a>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+        <div class="card">
+            <h2>📋 Leave Status</h2>
+
+            <div class="table-wrap">
+            
+   <div class="table-wrap">
+    <table>
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody id="statusTableBody">
+            </tbody>
+    </table>
+</div>
+
+<script>
+function toggleMenu(){
+    const sidebar = document.getElementById("sidebar");
+    sidebar.classList.toggle("show");
+}
+
+function loadStatusPage() {
+    // 1. Pull data from localStorage
+    const leaves = JSON.parse(localStorage.getItem("leaveRequests")) || [];
+    const tableBody = document.getElementById("statusTableBody");
+    
+    // 2. This must match the name used in 'apply leave.html'
+    const employeeName = "John"; 
+
+    tableBody.innerHTML = "";
+
+    // 3. Filter for 'John'
+    const myLeaves = leaves.filter(leave => leave.employee === employeeName);
+
+    if (myLeaves.length === 0) {
+        tableBody.innerHTML = `<tr><td colspan="4" style="text-align:center; padding:20px; opacity:0.5;">No leave history found.</td></tr>`;
+        return;
+    }
+
+    // 4. Populate rows
+    myLeaves.reverse().forEach(leave => {
+        let statusClass = leave.status.toLowerCase();
+
+        tableBody.innerHTML += `
+        <tr>
+            <td>${leave.type}</td>
+            <td>${leave.from}</td>
+            <td>${leave.to}</td>
+            <td><span class="status ${statusClass}">${leave.status}</span></td>
+        </tr>`;
+    });
+}
+
+document.addEventListener("DOMContentLoaded", loadStatusPage);
+</script>
+
+
+</body>
+</html>

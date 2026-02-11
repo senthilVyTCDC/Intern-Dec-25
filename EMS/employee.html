@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Employees | Admin Panel</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+/* Reset */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', sans-serif;
+}
+
+/* Background */
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#020617,#0f172a,#1e293b);
+    color:#fff;
+}
+
+/* Layout */
+.main{
+    display:flex;
+    min-height:100vh;
+}
+
+/* Sidebar */
+.sidebar{
+    width:260px;
+    background:rgba(2,6,23,0.9);
+    backdrop-filter:blur(10px);
+    padding-top:25px;
+}
+
+.logo{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.logo img{
+    width:70px;
+    margin-bottom:10px;
+}
+
+.logo h2{
+    color:#38bdf8;
+}
+
+.sidebar a{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:15px 22px;
+    color:#fff;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.sidebar a:hover,
+.sidebar a.active{
+    background:#38bdf8;
+    color:#000;
+    border-radius:10px;
+    margin:0 12px;
+}
+
+/* Content */
+.content{
+    flex:1;
+    padding:40px;
+}
+
+/* Header */
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.header h2{
+    color:#38bdf8;
+}
+
+/* Card */
+.card{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(12px);
+    border-radius:20px;
+    padding:25px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.5);
+}
+
+/* Table */
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:15px;
+}
+
+th{
+    background:rgba(0,0,0,0.6);
+    padding:14px;
+    text-transform:uppercase;
+    font-size:13px;
+}
+
+td{
+    padding:14px;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+tr:hover{
+    background:rgba(255,255,255,0.05);
+}
+
+/* Employee Avatar */
+.avatar{
+    width:36px;
+    height:36px;
+    border-radius:50%;
+    margin-right:10px;
+    vertical-align:middle;
+}
+
+/* Department Badge */
+.badge{
+    padding:5px 12px;
+    border-radius:15px;
+    font-size:13px;
+    font-weight:600;
+}
+
+.it{background:#38bdf8;color:#000}
+.hr{background:#facc15;color:#000}
+.finance{background:#4ade80;color:#000}
+</style>
+</head>
+
+<body>
+
+<div class="main">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <!-- Replace with your own logo if needed -->
+            <img src="https://cdn-icons-png.flaticon.com/512/3064/3064197.png" alt="Admin Logo">
+            <h2>ADMIN PANEL</h2>
+        </div>
+
+        <a href="admin dashboard.html"><i class="fa fa-chart-line"></i> Dashboard</a>
+        <a href="employees.html" class="active"><i class="fa fa-users"></i> Employees</a>
+        <a href="department.html"><i class="fa fa-building"></i> Departments</a>
+        <a href="leave_type.html"><i class="fa fa-file-alt"></i> Leave Types</a>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+
+        <div class="header">
+            <h2>👨‍💼 Employee Management</h2>
+        </div>
+
+        <div class="card">
+
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Employee</th>
+                    <th>Department</th>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td>
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="avatar">
+                        John
+                    </td>
+                    <td><span class="badge it">IT</span></td>
+                </tr>
+
+                <tr>
+                    <td>2</td>
+                    <td>
+                        <img src="https://cdn-icons-png.flaticon.com/512/4140/4140037.png" class="avatar">
+                        Priya
+                    </td>
+                    <td><span class="badge hr">HR</span></td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
